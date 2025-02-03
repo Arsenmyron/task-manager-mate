@@ -11,10 +11,10 @@ class TaskType(models.Model):
 
 class Task(models.Model):
     PRIORITY_CHOICES = [
-        ("LOW", "low priority task"),
-        ("MEDIUM", "medium priority task"),
-        ("HIGH", "high priority task"),
-        ("URGENT", "task with urgent priority"),
+        ("LOW", "Low priority task"),
+        ("MEDIUM", "Medium priority task"),
+        ("HIGH", "High priority task"),
+        ("URGENT", "Task with urgent priority"),
     ]
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
@@ -37,7 +37,7 @@ class Position(models.Model):
 
 
 class Worker(AbstractUser):
-    position = models.ForeignKey(Position, on_delete=models.CASCADE, related_name="workers")
+    position = models.ForeignKey(Position, on_delete=models.CASCADE, related_name="workers", default=1)
 
     def __str__(self):
         return f"{self.position.name}: {self.first_name} {self.last_name} ({self.username})"
