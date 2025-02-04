@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_bootstrap5",
     "task_management_app",
 
 ]
@@ -125,3 +126,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "task_management_app.Worker"
+
+LOGIN_REDIRECT_URL = "task_management_app:home"
+
+LOGOUT_REDIRECT_URL = "login"

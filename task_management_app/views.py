@@ -33,13 +33,13 @@ class TaskDetailView(generic.DetailView):
 class TaskCreateView(generic.CreateView):
     model = Task
     form_class = TaskForm
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
 
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
     form_class = TaskForm
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
 
 
 class TaskToggleStatusView(View):
@@ -52,31 +52,31 @@ class TaskToggleStatusView(View):
 
 class TaskDeleteView(generic.DeleteView):
     model = Task
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
 
 
 class WorkerSignUpView(generic.CreateView):
     form_class = WorkerForm
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
     template_name = "registration/signup.html"
 
 
 class TagCreateView(generic.CreateView):
     model = Tag
     form_class = TagForm
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
     template_name = "task_management_app/tag_form.html"
 
 
 class TaskTypeCreateView(generic.CreateView):
     model = TaskType
     form_class = TaskTypeForm
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
     template_name = "task_management_app/task_type_form.html"
 
 
 class PositionCreateView(generic.CreateView):
     model = Position
     form_class = PositionForm
-    success_url = reverse_lazy("task_management_app:task-list")
+    success_url = reverse_lazy("task_management_app:home")
     template_name = "task_management_app/position_form.html"
