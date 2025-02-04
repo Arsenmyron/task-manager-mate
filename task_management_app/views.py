@@ -1,15 +1,25 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
+from task_management_app.forms import (
+    TaskForm,
+    WorkerForm,
+    TagForm,
+    TaskTypeForm,
+    PositionForm
+)
 
-from task_management_app.forms import TaskForm
-from task_management_app.models import Task
+from task_management_app.models import (
+    Task,
+    Position,
+    TaskType,
+    Tag
+)
 
 
 class TaskListView(generic.ListView):
     model = Task
     context_object_name = "task_list"
-    template_name = "task_management_app/task_list.html"
+    template_name = "task_management_app/home.html"
 
 
 class TaskDetailView(generic.DetailView):
@@ -34,3 +44,24 @@ class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("task_management_app:task-list")
 
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    form_class = TagForm
+    success_url = reverse_lazy("task_management_app:task-list")
+    template_name = "task_management_app/tag_form.html"
+
+
+class TaskTypeCreateView(generic.CreateView):
+    model = TaskType
+    form_class = TaskTypeForm
+    success_url = reverse_lazy("task_management_app:task-list")
+    template_name = "task_management_app/task_type_form.html"
+
+
+class PositionCreateView(generic.CreateView):
+    model = Position
+    form_class = PositionForm
+    success_url = reverse_lazy("task_management_app:task-list")
+    template_name = "task_management_app/position_form.html"

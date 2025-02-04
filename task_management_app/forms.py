@@ -1,7 +1,13 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 
-from task_management_app.models import Task, Worker
+from task_management_app.models import (
+    Task,
+    Worker,
+    Tag,
+    TaskType,
+    Position
+)
 
 
 class TaskForm(forms.ModelForm):
@@ -16,6 +22,7 @@ class TaskForm(forms.ModelForm):
             "assignees",
             "tags"
         )
+
         widgets = {
             "deadline": forms.DateInput(attrs={"type": "date"}),
             "task_type": forms.RadioSelect,
@@ -24,7 +31,7 @@ class TaskForm(forms.ModelForm):
         }
 
 
-class WorkerCreationForm(UserCreationForm):
+class WorkerForm(UserCreationForm):
     class Meta:
         model = Worker
         fields = (
@@ -33,28 +40,26 @@ class WorkerCreationForm(UserCreationForm):
             "last_name",
             "email",
             "position",
-            "password",
         )
         widgets = {
             "email": forms.EmailInput(),
             "position": forms.Select(),
-            "password": forms.PasswordInput(),
         }
 
 
-class WorkerChangeForm(UserChangeForm):
+class TagForm(forms.ModelForm):
     class Meta:
-        model = Worker
-        fields = (
-            "username",
-            "first_name",
-            "last_name",
-            "email",
-            "password",
-        )
+        model = Tag
+        fields = ("name",)
 
-        widgets = {
-            "email": forms.EmailInput(),
-            "position": forms.Select(),
-            "password": forms.PasswordInput(),
-        }
+
+class TaskTypeForm(forms.ModelForm):
+    class Meta:
+        model = TaskType
+        fields = ("name",)
+
+
+class PositionForm(forms.ModelForm):
+    class Meta:
+        model = Position
+        fields = ("name",)
