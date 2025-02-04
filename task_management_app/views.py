@@ -1,5 +1,6 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 from task_management_app.forms import (
     TaskForm,
     WorkerForm,
@@ -19,6 +20,7 @@ from task_management_app.models import (
 class TaskListView(generic.ListView):
     model = Task
     context_object_name = "task_list"
+    ordering = ["is_completed"]
     template_name = "task_management_app/home.html"
 
 
@@ -38,6 +40,14 @@ class TaskUpdateView(generic.UpdateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy("task_management_app:task-list")
+
+
+class TaskToggleStatusView(View):
+    def post(self, request, *args, **kwargs):
+        task = Task.objects.get(pk=kwargs["pk"])
+        task.is_completed = not task.is_completed
+        task.save()
+        return redirect("task-management:home")
 
 
 class TaskDeleteView(generic.DeleteView):
