@@ -6,6 +6,7 @@ from task_management_app.views import (
     TaskDetailView,
     TaskUpdateView,
     TaskDeleteView,
+    WorkerSignUpView,
     TagCreateView,
     TaskTypeCreateView,
     PositionCreateView,
@@ -27,7 +28,9 @@ urlpatterns = [
     path(
         "tasks/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete"
     ),
-
+    path(
+        "signup/", WorkerSignUpView.as_view(), name="signup"
+    ),
     path(
         "tag/create/", TagCreateView.as_view(), name="tag-create"
     ),

@@ -45,6 +45,11 @@ class TaskDeleteView(generic.DeleteView):
     success_url = reverse_lazy("task_management_app:task-list")
 
 
+class WorkerSignUpView(generic.CreateView):
+    form_class = WorkerForm
+    success_url = reverse_lazy("task_management_app:task-list")
+    template_name = "registration/signup.html"
+
 
 class TagCreateView(generic.CreateView):
     model = Tag
