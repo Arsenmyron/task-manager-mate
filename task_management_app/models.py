@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+
+from task_manager.settings import AUTH_USER_MODEL
 
 
 class TaskType(models.Model):
@@ -11,10 +14,10 @@ class TaskType(models.Model):
 
 class Task(models.Model):
     PRIORITY_CHOICES = [
-        ("LOW", "Low priority task"),
-        ("MEDIUM", "Medium priority task"),
-        ("HIGH", "High priority task"),
-        ("URGENT", "Task with urgent priority"),
+        ("LOW", "Low"),
+        ("MEDIUM", "Medium"),
+        ("HIGH", "High"),
+        ("URGENT", "Urgent"),
     ]
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
@@ -22,7 +25,7 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     priority = models.CharField(max_length=8, choices=PRIORITY_CHOICES, null=True)
     task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE, related_name="tasks")
-    assignees = models.ManyToManyField("Worker", related_name="tasks")
+    assignees = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="tasks")
     tags = models.ManyToManyField("Tag", related_name="tasks", blank=True)
 
     def __str__(self):
