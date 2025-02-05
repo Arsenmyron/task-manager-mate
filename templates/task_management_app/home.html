@@ -1,0 +1,40 @@
+{% extends  "base.html" %}
+
+{% block content %}
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Logout</button>
+    </form>
+  <button >
+    <a href="{% url 'task-management:task-create' %}">Add task</a>
+  </button>
+  <ul>
+    {% if task_list %}
+      {% for task in task_list %}
+        <li>
+          <p>
+            <a href="{% url 'task-management:task-detail' pk=task.id %}">
+              {{ task.name }}
+            </a>
+            <form method="post" action="{% url 'task-management:task-delete' pk=task.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+          </p>
+          <p>
+          <form action="{% url 'task-management:task-toggle-status' pk=task.id %}" method="post">
+            {% csrf_token %}
+            {% if task.is_completed %}
+              <button type="submit">Undo</button>
+            {% else %}
+              <button type="submit">Complete</button>
+            {% endif %}
+          </form>
+          </p>
+        </li>
+      {% endfor %}
+    {% else %}
+      <p>No tasks detected!</p>
+    {% endif %}
+  </ul>
+{% endblock %}

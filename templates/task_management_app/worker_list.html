@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <a href="{% url 'task-management:position-create' %}">Create new position</a>
+  <ul>
+    {% for worker in worker_list %}
+      <li>
+        {{ worker.first_name }} {{ worker.last_name }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

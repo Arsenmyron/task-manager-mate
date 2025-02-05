@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django_bootstrap5",
+    'crispy_forms',
+    'crispy_bootstrap5',
     "task_management_app",
 
 ]
@@ -120,6 +121,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -130,3 +133,7 @@ AUTH_USER_MODEL = "task_management_app.Worker"
 LOGIN_REDIRECT_URL = "task_management_app:home"
 
 LOGOUT_REDIRECT_URL = "login"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
