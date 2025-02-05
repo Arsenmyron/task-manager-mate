@@ -40,10 +40,14 @@ class WorkerForm(UserCreationForm):
             "last_name",
             "email",
             "position",
+            "password1",
+            "password2",
         )
         widgets = {
             "email": forms.EmailInput(),
             "position": forms.Select(),
+            "password1": forms.PasswordInput(),
+            "password2": forms.PasswordInput(),
         }
 
 
