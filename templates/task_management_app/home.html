@@ -1,40 +1,41 @@
 {% extends  "base.html" %}
-
+<body>
 {% block content %}
-    <form action="{% url 'logout' %}" method="post">
-      {% csrf_token %}
-      <button type="submit">Logout</button>
-    </form>
-  <button >
-    <a href="{% url 'task-management:task-create' %}">Add task</a>
-  </button>
-  <ul>
+  <div class="custom-btn-container">
+    <a class=" lg-hover btn btn-dark" href="{% url 'task-management:task-create' %}">Add task</a>
+  </div>
+  <div class="container">
     {% if task_list %}
-      {% for task in task_list %}
-        <li>
-          <p>
-            <a href="{% url 'task-management:task-detail' pk=task.id %}">
-              {{ task.name }}
-            </a>
-            <form method="post" action="{% url 'task-management:task-delete' pk=task.id %}" style="display:inline;">
-                    {% csrf_token %}
-                    <button type="submit">Delete</button>
-                </form>
-          </p>
-          <p>
-          <form action="{% url 'task-management:task-toggle-status' pk=task.id %}" method="post">
-            {% csrf_token %}
-            {% if task.is_completed %}
-              <button type="submit">Undo</button>
-            {% else %}
-              <button type="submit">Complete</button>
-            {% endif %}
-          </form>
-          </p>
-        </li>
-      {% endfor %}
+      <div class="card-container">
+        {% for task in task_list %}
+         <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a class="custom-link" href="{% url 'task-management:task-detail' pk=task.id %}">{{ task.name }}</a>
+        </h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>Deadline:</strong> {{ task.deadline }}
+            </li>
+            <li class="list-group-item">
+                <strong>Priority:</strong> {{ task.priority }}
+            </li>
+            <li class="list-group-item">
+                <strong>Type:</strong> {{ task.type }}
+            </li>
+        </ul>
+        <div class="card-body">
+            <form action="{% url 'task-management:task-toggle-status' pk=task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                    <button type="submit" class="btn-complete btn btn-dark">Complete</button>
+            </form>
+        </div>
+    </div>
+</div>
+        {% endfor %}
+      </div>
     {% else %}
       <p>No tasks detected!</p>
     {% endif %}
-  </ul>
+  </div>
 {% endblock %}
