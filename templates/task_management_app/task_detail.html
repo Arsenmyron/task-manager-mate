@@ -1,18 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ task.name }} {{ task.priority }}</h1>
-  <h3>{{ task.task_type }}</h3>
-  <p>{{ task.description }}</p>
-  <p>{{ task.deadline }}</p>
-  <ul>
-    {% for assignee in task.assignees.all %}
-      <li>{{ assignee }}</li>
-    {% endfor %}
-  </ul>
-  {% for tag in task.tags.all %}
-    <p>
-      {{ tag }},
-    </p>
-  {% endfor %}
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">
+          {{ task.name }}
+          {% if task.priority == "URGENT" %}
+            <span class="badge bg-danger">{{ task.priority }}</span>
+          {% elif task.priority == "HIGH" %}
+            <span class="badge bg-warning text-dark">{{ task.priority }}</span>
+          {% elif task.priority == "MEDIUM" %}
+            <span class="badge bg-primary">{{ task.priority }}</span>
+          {% elif task.priority == "LOW" %}
+            <span class="badge bg-secondary">{{ task.priority }}</span>
+          {% else %}
+            <span class="badge bg-info">{{ task.priority }}</span>
+          {% endif %}
+        </h1>
+        <h3 class="card-subtitle mb-2 text-muted">{{ task.task_type }}</h3>
+        <p class="card-text">{{ task.description }}</p>
+        <p class="card-text"><strong>Deadline:</strong> {{ task.deadline }}</p>
+
+        <h5>Assignees:</h5>
+        <ul class="list-group list-group-flush mb-3">
+          {% for assignee in task.assignees.all %}
+            <li class="list-group-item">{{ assignee }}</li>
+          {% empty %}
+            <li class="list-group-item">No assignees</li>
+          {% endfor %}
+        </ul>
+
+        <h5>Tags</h5>
+        <div class="mb-3">
+          {% for tag in task.tags.all %}
+            <span class="badge bg-secondary">{{ tag }}</span>
+          {% empty %}
+            <span>No tags</span>
+          {% endfor %}
+        </div>
+        <form method="post" action="{% url 'task-management:task-delete' pk=task.id %}" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit" class="delete-btn btn btn-dark">Delete</button>
+        </form>
+        <a href="{% url 'task-management:home' %}" class="btn-close position-absolute top-0 end-0" aria-label="Close"></a>
+      </div>
+    </div>
+  </div>
 {% endblock %}

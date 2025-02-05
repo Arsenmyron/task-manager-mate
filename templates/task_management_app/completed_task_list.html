@@ -1,12 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Completed</h1>
-    <ul>
+  <h1>Completed tasks:</h1>
+    {% if completed_task_list %}
+      <div class="card-container">
       {% for task in completed_task_list %}
-        <li>
-          {{ task.name }} {{ task.deadline }}
-        </li>
-      {% endfor %}
-		</ul>
+        <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a class="custom-link" href="{% url 'task-management:task-detail' pk=task.id %}">{{ task.name }}</a>
+        </h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>Deadline:</strong> {{ task.deadline }}
+            </li>
+            <li class="list-group-item">
+                <strong>Priority:</strong> {{ task.priority }}
+            </li>
+            <li class="list-group-item">
+                <strong>Type:</strong> {{ task.type }}
+            </li>
+        </ul>
+        <div class="card-body">
+            <form action="{% url 'task-management:task-toggle-status' pk=task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                  <button type="submit" class="undo-btn btn btn-outline-dark">Undo</button>
+                  </form>
+                  <form action="{% url 'task-management:task-delete' pk=task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                  <button type="submit" class="delete-btn btn btn-outline-dark">Delete</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+      <p>No completed tasks!</p>
+    {% endif %}
 {% endblock %}

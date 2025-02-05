@@ -1,10 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Create Task</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-  </form>
+  {% load crispy_forms_filters %}
+	<div class="container mt-4">
+    <h1>Create Task</h1>
+    <form action="" method="post" class="row g-3">
+      <div class="custom-btn-container">
+        <input type="submit" value="Save" class="lg-hover btn btn-outline-dark">
+      </div>
+      {% csrf_token %}
+      <div class="col-md-6">
+        {{ form.name|as_crispy_field }}
+        {{ form.description|as_crispy_field }}
+      </div>
+      <div class="col-md-6">
+        {{ form.deadline|as_crispy_field }}
+        {{ form.priority|as_crispy_field }}
+      </div>
+      <div class="col-md-6">
+        {{ form.task_type|as_crispy_field }}
+        {{ form.tags|as_crispy_field }}
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          {{ form.assignees|as_crispy_field }}
+        </div>
+      </div>
+    </form>
+  </div>
 {% endblock %}
