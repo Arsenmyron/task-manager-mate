@@ -1,12 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <a href="{% url 'task-management:position-create' %}">Create new position</a>
-  <ul>
-    {% for worker in worker_list %}
-      <li>
-        {{ worker.first_name }} {{ worker.last_name }}
-      </li>
-    {% endfor %}
-  </ul>
+ <div class="container mt-4">
+    <h1>Team:</h1>
+    <div class="worker-container row g-3">
+      {% for worker in worker_list %}
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ worker.first_name }} {{ worker.last_name }}</h5>
+              <ul class="list-group list-group-flush">
+                <h6>Assigned tasks:</h6>
+                {% for task in worker.tasks.all %}
+                  <li class="list-group-item">
+                    <a class="task-link" href="{% url 'task-management:task-detail' pk=task.id %}">{{ task.name }}</a>
+                  </li>
+                {% empty %}
+                  <li class="list-group-item">No tasks assigned</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
