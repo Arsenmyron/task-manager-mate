@@ -1,0 +1,99 @@
+.signup-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+    height: 30px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.submit-button {
+    height: 30px;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.login-button {
+    height: 35px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    flex-grow: 1
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: #333;
+}
+
+label {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.required:after {
+    content: '';
+
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.card {
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    height: 200px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.custom-link {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    color: deepskyblue;
+    text-decoration: underline;
+}
