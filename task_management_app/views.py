@@ -64,7 +64,7 @@ class TaskToggleStatusView(View):
 
 class TaskDeleteView(generic.DeleteView):
     model = Task
-    success_url = reverse_lazy("task_management_app:home")
+    success_url = reverse_lazy("task_management_app:completed-task-list")
 
 
 class WorkerSignUpView(generic.CreateView):
@@ -93,7 +93,7 @@ class TagListView(generic.ListView):
 
 class TagDeleteView(generic.DeleteView):
     model = Tag
-    success_url = reverse_lazy("task_management_app:home")
+    success_url = reverse_lazy("task_management_app:tag-list")
 
 
 class TaskTypeCreateView(generic.CreateView):
@@ -110,7 +110,7 @@ class TaskTypeListView(generic.ListView):
 
 class TaskTypeDeleteView(generic.DeleteView):
     model = TaskType
-    success_url = reverse_lazy("task_management_app:home")
+    success_url = reverse_lazy("task_management_app:task-type-list")
 
 class PositionCreateView(generic.CreateView):
     model = Position
@@ -127,4 +127,4 @@ class PositionListView(generic.ListView):
 
 class PositionDeleteView(generic.DeleteView):
     model = Position
-    success_url = reverse_lazy("task_management_app:")
+    success_url = reverse_lazy("task_management_app:position-list")
