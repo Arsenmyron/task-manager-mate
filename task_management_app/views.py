@@ -13,15 +13,24 @@ from task_management_app.models import (
     Task,
     Position,
     TaskType,
-    Tag
+    Tag, Worker
 )
 
 
 class TaskListView(generic.ListView):
     model = Task
     context_object_name = "task_list"
-    ordering = ["is_completed"]
+    ordering = ["is_completed", "priority"]
     template_name = "task_management_app/home.html"
+
+
+class CompletedTaskListView(generic.ListView):
+    model = Task
+    context_object_name = "completed_task_list"
+    template_name = "task_management_app/completed_task_list.html"
+
+    def get_queryset(self):
+        return Task.objects.filter(is_completed=True)
 
 
 class TaskDetailView(generic.DetailView):
@@ -60,6 +69,11 @@ class WorkerSignUpView(generic.CreateView):
     success_url = reverse_lazy("task_management_app:home")
     template_name = "registration/signup.html"
 
+
+class WorkerListView(generic.ListView):
+    model = Worker
+    context_object_name = "worker_list"
+    template_name = "task_management_app/worker_list.html"
 
 class TagCreateView(generic.CreateView):
     model = Tag

@@ -11,6 +11,8 @@ from task_management_app.views import (
     TaskTypeCreateView,
     PositionCreateView,
     TaskToggleStatusView,
+    WorkerListView,
+    CompletedTaskListView,
 )
 
 urlpatterns = [
@@ -43,6 +45,12 @@ urlpatterns = [
     ),
     path(
         "position/create/", PositionCreateView.as_view(), name="position-create"
+    ),
+    path(
+        "workers/", WorkerListView.as_view(), name="worker-list"
+    ),
+    path(
+        "tasks/completed/", CompletedTaskListView.as_view(), name="completed-task-list"
     ),
 
 ]
