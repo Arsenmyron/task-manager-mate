@@ -23,6 +23,9 @@ class TaskListView(generic.ListView):
     ordering = ["is_completed", "priority"]
     template_name = "task_management_app/home.html"
 
+    def get_queryset(self):
+        return Task.objects.filter(is_completed=False)
+
 
 class CompletedTaskListView(generic.ListView):
     model = Task
@@ -82,6 +85,17 @@ class TagCreateView(generic.CreateView):
     template_name = "task_management_app/tag_form.html"
 
 
+class TagListView(generic.ListView):
+    model = Tag
+    context_object_name = "tag_list"
+    template_name = "task_management_app/tag_list.html"
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy("task_management_app:home")
+
+
 class TaskTypeCreateView(generic.CreateView):
     model = TaskType
     form_class = TaskTypeForm
@@ -89,8 +103,28 @@ class TaskTypeCreateView(generic.CreateView):
     template_name = "task_management_app/task_type_form.html"
 
 
+class TaskTypeListView(generic.ListView):
+    model = TaskType
+    context_object_name = "task_type_list"
+    template_name = "task_management_app/task_type_list.html"
+
+class TaskTypeDeleteView(generic.DeleteView):
+    model = TaskType
+    success_url = reverse_lazy("task_management_app:home")
+
 class PositionCreateView(generic.CreateView):
     model = Position
     form_class = PositionForm
     success_url = reverse_lazy("task_management_app:home")
     template_name = "task_management_app/position_form.html"
+
+
+class PositionListView(generic.ListView):
+    model = Position
+    context_object_name = "position_list"
+    template_name = "task_management_app/position_list.html"
+
+
+class PositionDeleteView(generic.DeleteView):
+    model = Position
+    success_url = reverse_lazy("task_management_app:")

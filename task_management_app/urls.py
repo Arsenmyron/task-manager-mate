@@ -13,6 +13,12 @@ from task_management_app.views import (
     TaskToggleStatusView,
     WorkerListView,
     CompletedTaskListView,
+    PositionListView,
+    PositionDeleteView,
+    TaskTypeListView,
+    TaskTypeDeleteView,
+    TagListView,
+    TagDeleteView,
 )
 
 urlpatterns = [
@@ -41,10 +47,28 @@ urlpatterns = [
         "tag/create/", TagCreateView.as_view(), name="tag-create"
     ),
     path(
+        "tags/", TagListView.as_view(), name="tag-list"
+    ),
+    path(
+        "tag/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete"
+    ),
+    path(
         "task_type/create/", TaskTypeCreateView.as_view(), name="task-type-create"
     ),
     path(
+        "task_types/", TaskTypeListView.as_view(), name="task-type-list"
+    ),
+    path(
+        "task_type/<int:pk>/delete/", TaskTypeDeleteView.as_view(), name="task-type-delete"
+    ),
+    path(
         "position/create/", PositionCreateView.as_view(), name="position-create"
+    ),
+    path(
+        "positions/", PositionListView.as_view(), name="position-list"
+    ),
+    path(
+        "position/<int:pk/delete/>", PositionDeleteView.as_view(), name="position-delete"
     ),
     path(
         "workers/", WorkerListView.as_view(), name="worker-list"
