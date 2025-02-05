@@ -72,7 +72,7 @@ label {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .card {
@@ -83,7 +83,7 @@ label {
 }
 
 .card-body {
-    height: 200px;
+    height: auto;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -94,6 +94,98 @@ label {
 }
 
 .custom-link:hover {
-    color: deepskyblue;
     text-decoration: underline;
+}
+
+.custom-btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: #F5F5DC;
+}
+
+.btn-complete:hover {
+    border-width: 2px;
+}
+
+.navigation-bgc {
+    background-color: #F5F5DC;
+}
+
+.lg-hover:hover {
+    border-width: 2px;
+}
+
+.logout-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.worker-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.card {
+    flex: 1 1 calc(50% - 30px);
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-link:hover {
+    color: #e0e0e0;
+}
+
+.task-link {
+    color: #333333;
+    text-decoration: none;
+}
+
+.task-link:hover {
+    text-decoration: underline;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+.undo-btn:hover {
+    color: yellow;
+}
+
+.tag-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tag-table th, .tag-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.tag-table th {
+    background-color: #f2f2f2;
 }
