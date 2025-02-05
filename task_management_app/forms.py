@@ -25,9 +25,10 @@ class TaskForm(forms.ModelForm):
 
         widgets = {
             "deadline": forms.DateInput(attrs={"type": "date"}),
-            "task_type": forms.RadioSelect,
+            "task_type": forms.Select,
             "assignees": forms.CheckboxSelectMultiple,
-            "tags": forms.CheckboxSelectMultiple,
+            "tags": forms.SelectMultiple,
+            "priority": forms.RadioSelect,
         }
 
 
