@@ -68,7 +68,7 @@ class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("task_management_app:completed-task-list")
 
 
-class WorkerSignUpView(LoginRequiredMixin, generic.CreateView):
+class WorkerSignUpView(generic.CreateView):
     form_class = WorkerForm
     success_url = reverse_lazy("task_management_app:home")
     template_name = "registration/signup.html"
