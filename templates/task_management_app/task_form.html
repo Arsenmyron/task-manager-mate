@@ -3,7 +3,11 @@
 {% block content %}
   {% load crispy_forms_filters %}
 	<div class="container mt-4">
-    <h1>Create Task</h1>
+    {% if task.name %}
+      <h1>{{ task.name }}:</h1>
+    {% else %}
+      <h1>New task:</h1>
+    {% endif %}
     <form action="" method="post" class="row g-3">
       <div class="custom-btn-container">
         <input type="submit" value="Save" class="lg-hover btn btn-outline-dark">

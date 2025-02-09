@@ -43,6 +43,7 @@
           {% csrf_token %}
           <button type="submit" class="delete-btn btn btn-dark">Delete</button>
         </form>
+        <a class="btn btn-dark" href="{% url 'task-management:task-update' pk=task.id %}">Update</a>
         <a href="{% url 'task-management:home' %}" class="btn-close position-absolute top-0 end-0" aria-label="Close"></a>
       </div>
     </div>
