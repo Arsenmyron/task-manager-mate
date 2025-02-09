@@ -79,6 +79,12 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "worker_list"
     template_name = "task_management_app/worker_list.html"
 
+
+class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Worker
+    template_name = "task_management_app/worker_detail.html"
+
+
 class TagCreateView(LoginRequiredMixin, generic.CreateView):
     model = Tag
     form_class = TagForm

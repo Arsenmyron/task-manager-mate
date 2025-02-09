@@ -3,12 +3,16 @@
 {% block content %}
  <div class="container mt-4">
     <h1>Team:</h1>
-    <div class="worker-container row g-3">
+    <div class="worker-container row g-2">
       {% for worker in worker_list %}
         <div class="col-md-4">
-          <div class="card">
+          <div class="workers-container card">
             <div class="card-body">
-              <h5 class="card-title">{{ worker.first_name }} {{ worker.last_name }}</h5>
+              <h5 class="card-title">
+                <a class="custom-link" href="{% url 'task-management:worker-detail' pk=worker.id %}">
+                  {{ worker.first_name }} {{ worker.last_name }}
+                </a>
+              </h5>
               <ul class="list-group list-group-flush">
                 <h6>Assigned tasks:</h6>
                 {% for task in worker.tasks.all %}

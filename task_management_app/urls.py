@@ -18,7 +18,7 @@ from task_management_app.views import (
     TaskTypeListView,
     TaskTypeDeleteView,
     TagListView,
-    TagDeleteView,
+    TagDeleteView, WorkerDetailView,
 )
 
 urlpatterns = [
@@ -72,6 +72,9 @@ urlpatterns = [
     ),
     path(
         "workers/", WorkerListView.as_view(), name="worker-list"
+    ),
+    path(
+        "workers/<int:pk>/", WorkerDetailView.as_view(), name="worker-detail"
     ),
     path(
         "tasks/completed/", CompletedTaskListView.as_view(), name="completed-task-list"
