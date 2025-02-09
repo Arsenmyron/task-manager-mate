@@ -189,16 +189,3 @@ body {
 .tag-table th {
     background-color: #f2f2f2;
 }
-
-.workers-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.worker-container .card {
-    flex: 0 0 auto;
-    width: calc(33.333% - 16px);
-    margin-right: 16px;
-    margin-bottom: 16px;
-  }
