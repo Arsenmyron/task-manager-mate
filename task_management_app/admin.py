@@ -14,9 +14,11 @@ class WorkerAdmin(UserAdmin):
         (None, {"fields": ("position", )}),
     )
 
+
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ("name", "deadline", "priority", "is_completed")
+
 
 admin.site.register(TaskType)
 admin.site.register(Position)
