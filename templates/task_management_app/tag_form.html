@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% load crispy_forms_filters %}
+  <div class="container mt-4">
+    <h1>Create Tag</h1>
+    <form action="" method="post" class="row g-3">
+      {% csrf_token %}
+      <div class="col-md-6 offset-md-3">
+        {{ form.name|as_crispy_field }}
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="lg-hover btn btn-outline-dark">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

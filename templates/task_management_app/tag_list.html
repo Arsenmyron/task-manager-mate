@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% load static %}
+  <div class="custom-btn-container">
+    <a class="lg-hover btn btn-dark" href="{% url 'task-management-app:tag-create' %}">
+      <img src="{% static 'images/plus.png' %}" alt="Add" width="20">
+      Add tag
+    </a>
+  </div>
+<div class="container">
+        <h1>Tags:</h1>
+        <table class="tag-table">
+            <tbody>
+                {% for tag in tag_list %}
+                    <tr>
+                        <td>{{ tag.name }}</td>
+                        <td>
+                            <form method="post" action="{% url 'task-management-app:tag-delete' tag.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="custom-btn-dark btn btn-dark">
+                                  <img src="{% static 'images/delete.png' %}" alt="Delete" width="20">
+                                  Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% empty %}
+                  <div class="centered-message">
+                    <h3>No tag available</h3>
+                    <h5>
+                      <a class="btn btn-outline-dark" href="{% url 'task-management-app:tag-create' %}">
+                        Create a new one!
+                      </a>
+                    </h5>
+                  </div>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  {% load static %}
+  <div class="custom-btn-container">
+    <a class="custom-btn-dark btn btn-dark" href="{% url 'task-management-app:position-create' %}">
+      <img src="{% static 'images/briefcase.png' %}" alt="Add Position" width="20">
+      Create new position
+    </a>
+  </div>
+  <div class="container">
+        <h1>Positions</h1>
+        <table class="positions-table">
+            <tbody>
+                {% for position in position_list %}
+                    <tr>
+                        <td>{{ position.name }}</td>
+                        <td>
+                            <form method="post" action="{% url 'task-management-app:position-delete' position.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="custom-btn-dark btn btn-dark">
+                                  <img src="{% static 'images/delete.png' %}" alt="Delete" width="20">
+                                  Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <div class="centered-message">
+                    <h3>No positions</h3>
+                    <h5>
+                      <a class="btn btn-outline-dark" href="{% url 'task-management-app:position-create' %}">
+                        It`s better to create some!
+                      </a>
+                    </h5>
+                  </div>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

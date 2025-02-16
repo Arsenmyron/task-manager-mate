@@ -1,0 +1,331 @@
+[
+{
+    "model": "task_management_app.tasktype",
+    "pk": 2,
+    "fields": {
+        "name": "New feature"
+    }
+},
+{
+    "model": "task_management_app.tasktype",
+    "pk": 3,
+    "fields": {
+        "name": "Breaking change"
+    }
+},
+{
+    "model": "task_management_app.tasktype",
+    "pk": 4,
+    "fields": {
+        "name": "Refactoring"
+    }
+},
+{
+    "model": "task_management_app.tasktype",
+    "pk": 5,
+    "fields": {
+        "name": "QA"
+    }
+},
+{
+    "model": "task_management_app.tasktype",
+    "pk": 6,
+    "fields": {
+        "name": "Regular"
+    }
+},
+{
+    "model": "task_management_app.tasktype",
+    "pk": 8,
+    "fields": {
+        "name": "Bug"
+    }
+},
+{
+    "model": "task_management_app.task",
+    "pk": 27,
+    "fields": {
+        "name": "Fix login bug",
+        "description": "Resolve issue preventing users from logging in",
+        "deadline": "2025-02-28T16:22:24Z",
+        "is_completed": true,
+        "priority": "HIGH",
+        "task_type": 8,
+        "assignees": [],
+        "tags": [
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "task_management_app.task",
+    "pk": 28,
+    "fields": {
+        "name": "Implement user registration",
+        "description": "Create registration form and integrate with backend.",
+        "deadline": "2025-03-05T16:22:24Z",
+        "is_completed": true,
+        "priority": "URGENT",
+        "task_type": 2,
+        "assignees": [
+            8,
+            9
+        ],
+        "tags": [
+            7,
+            8,
+            9,
+            13
+        ]
+    }
+},
+{
+    "model": "task_management_app.task",
+    "pk": 29,
+    "fields": {
+        "name": "Update project documentation",
+        "description": "Ensure all project documents are up-to-date",
+        "deadline": "2025-04-04T16:22:24Z",
+        "is_completed": false,
+        "priority": "MEDIUM",
+        "task_type": 6,
+        "assignees": [
+            8,
+            9
+        ],
+        "tags": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+        ]
+    }
+},
+{
+    "model": "task_management_app.task",
+    "pk": 30,
+    "fields": {
+        "name": "Redesign landing page",
+        "description": "Create a new design for the landing page",
+        "deadline": "2025-03-05T16:22:24Z",
+        "is_completed": false,
+        "priority": "LOW",
+        "task_type": 3,
+        "assignees": [
+            9
+        ],
+        "tags": [
+            7,
+            10,
+            15
+        ]
+    }
+},
+{
+    "model": "task_management_app.task",
+    "pk": 31,
+    "fields": {
+        "name": "Optimize database queries",
+        "description": "Improve the performance of database queries",
+        "deadline": "2025-03-05T16:22:24Z",
+        "is_completed": false,
+        "priority": "HIGH",
+        "task_type": 4,
+        "assignees": [
+            8
+        ],
+        "tags": [
+            8,
+            9,
+            12,
+            14
+        ]
+    }
+},
+{
+    "model": "task_management_app.position",
+    "pk": 1,
+    "fields": {
+        "name": "Top manager"
+    }
+},
+{
+    "model": "task_management_app.position",
+    "pk": 2,
+    "fields": {
+        "name": "Developer"
+    }
+},
+{
+    "model": "task_management_app.position",
+    "pk": 3,
+    "fields": {
+        "name": "Project Manager"
+    }
+},
+{
+    "model": "task_management_app.position",
+    "pk": 4,
+    "fields": {
+        "name": "QA"
+    }
+},
+{
+    "model": "task_management_app.position",
+    "pk": 5,
+    "fields": {
+        "name": "Designer"
+    }
+},
+{
+    "model": "task_management_app.position",
+    "pk": 6,
+    "fields": {
+        "name": "DevOps"
+    }
+},
+{
+    "model": "task_management_app.worker",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$3FI4HiLDPacpTfv88pdoEh$boT85BUd+XruJIxE0Y1ZGZcWC3IHZuIUq+IUaj4SXL0=",
+        "last_login": "2025-02-06T11:44:01.699Z",
+        "is_superuser": true,
+        "username": "arsen",
+        "first_name": "",
+        "last_name": "",
+        "email": "arsen@mail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-02-05T15:29:39.523Z",
+        "position": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_management_app.worker",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Z2DeW9XJ7hXHf9W4sYHlTZ$ar5R1aQOrmCuuw71Q9eCU2zIVdm1X31z/MBm2KYeGpk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "PythonEnjoyer",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-05T15:42:19.714Z",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_management_app.worker",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$vc2x7ymV3cbJqTMARezgQg$AQYg0At3YCbgrzb+7rpaEHq7Z3nDoD4jlHkI5s/d2cU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "JSmaster",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-05T15:42:54.663Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_management_app.worker",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$mCdHO02r5HxPN7Oi7lLQdK$XIj1onhxICAzH9G2D49NvxNMooynP21lz6MPfwThmZg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "TheBestManager",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-05T15:43:25.584Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 7,
+    "fields": {
+        "name": "Frontend"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 8,
+    "fields": {
+        "name": "Backend"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 9,
+    "fields": {
+        "name": "Database"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 10,
+    "fields": {
+        "name": "UI/UX"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 11,
+    "fields": {
+        "name": "Testing"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 12,
+    "fields": {
+        "name": "Security"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 13,
+    "fields": {
+        "name": "Perfomance"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 14,
+    "fields": {
+        "name": "Optimization"
+    }
+},
+{
+    "model": "task_management_app.tag",
+    "pk": 15,
+    "fields": {
+        "name": "Deployment"
+    }
+}
+]

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <div class="container mt-2">
+    <h1>Team:</h1>
+    <div class="card-container">
+      {% for worker in worker_list %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a class="custom-link" href="{% url 'task-management-app:worker-detail' pk=worker.id %}">
+                  {{ worker.first_name }} {{ worker.last_name }}
+                </a>
+              </h5>
+              <ul class="list-group list-group-flush">
+                <h6>Assigned tasks:</h6>
+                {% for task in worker.tasks.all %}
+                  <li class="list-group-item">
+                    <a class="task-link" href="{% url 'task-management-app:task-detail' pk=task.id %}">{{ task.name }}</a>
+                  </li>
+                {% empty %}
+                  <li class="list-group-item">No tasks assigned</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

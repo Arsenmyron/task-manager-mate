@@ -1,0 +1,285 @@
+.signup-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+    height: 30px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.submit-button {
+    height: 30px;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.login-button {
+    height: 35px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    flex-grow: 1
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: #333;
+}
+
+label {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.required:after {
+    content: '';
+
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.card {
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Trebuchet MS";
+}
+
+.custom-link {
+    color: black;
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    text-decoration: underline;
+}
+
+.custom-btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: #F5F5DC;
+    font-family: "Trebuchet MS";
+}
+
+.navigation-bgc {
+    background-color: #F5F5DC;
+}
+
+
+.logout-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.card {
+    flex: 1 1 calc(50% - 30px);
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-link:hover {
+    color: #e0e0e0;
+    background-color: #333;
+}
+
+.task-link {
+    color: #333333;
+    text-decoration: none;
+}
+
+.task-link:hover {
+    text-decoration: underline;
+}
+
+
+
+.undo-btn:hover {
+    color: yellow;
+}
+
+.tag-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tag-table th, .tag-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.tag-table th {
+    background-color: #f2f2f2;
+}
+.card-body .btn img {
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.1s ease;
+}
+.custom-btn-dark img {
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+.strong-h {
+    font-size: 20px;
+}
+.sidebar-btn:hover img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.5ms ease;
+}
+.task-types-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.task-types-table th, .task-types-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-types-table th {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.task-types-table td {
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+.tag-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tag-table th, .tag-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tag-table th {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.tag-table td {
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+.positions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.positions-table th, .positions-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.positions-table th {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.positions-table td {
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+.complete-btn img {
+    filter: none !important;
+    transition: filter 0.5ms ease;
+    vertical-align: middle;
+}
+.complete-btn:hover img {
+    filter: invert(1) brightness(4) !important;
+    transition: filter 0.5ms ease;
+}
+.centered-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    text-align: center;
+}

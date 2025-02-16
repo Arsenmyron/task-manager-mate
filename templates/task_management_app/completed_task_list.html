@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% load static %}
+  <h1>Completed tasks:</h1>
+    {% if completed_task_list %}
+      <div class="card-container">
+      {% for task in completed_task_list %}
+        <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a class="custom-link" href="{% url 'task-management-app:task-detail' pk=task.id %}">{{ task.name }}</a>
+        </h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>Deadline:</strong> {{ task.deadline }}
+            </li>
+            <li class="list-group-item">
+                <strong>Priority:</strong> {{ task.priority }}
+            </li>
+            <li class="list-group-item">
+                <strong>Type:</strong> {{ task.type }}
+            </li>
+        </ul>
+        <div class="card-body">
+            <form action="{% url 'task-management-app:task-toggle-status' pk=task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                  <button type="submit" class="btn btn-dark">
+                    <img src="{% static 'images/undo.png' %}" alt="Undo" width="20">
+                    Undo
+                  </button>
+                  </form>
+                  <form action="{% url 'task-management-app:task-delete' pk=task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                  <button type="submit" class="btn btn-dark">
+                    <img src="{% static 'images/delete.png' %}" alt="Delete" width="20">
+                    Delete
+                  </button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+      <div class="centered-message">
+        <h2>
+          Nothing has been done yet
+        </h2>
+        <h5>
+          <a class="btn btn-outline-dark" href="{% url 'task-management-app:home' %}">
+            Try to fix it!
+          </a>
+        </h5>
+      </div>
+    {% endif %}
+    {% endblock %}
+</div>

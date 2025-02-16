@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% load crispy_forms_filters %}
+	<div class="container mt-4">
+    {% if task.name %}
+      <h1>{{ task.name }}:</h1>
+    {% else %}
+      <h1>New task:</h1>
+    {% endif %}
+    <form action="" method="post" class="row g-3">
+      <div class="custom-btn-container">
+        <input type="submit" value="Save" class="lg-hover btn btn-outline-dark">
+      </div>
+      {% csrf_token %}
+      <div class="col-md-6">
+        {{ form.name|as_crispy_field }}
+        {{ form.description|as_crispy_field }}
+      </div>
+      <div class="col-md-6">
+        {{ form.deadline|as_crispy_field }}
+        {{ form.priority|as_crispy_field }}
+      </div>
+      <div class="col-md-6">
+        {{ form.task_type|as_crispy_field }}
+        {{ form.tags|as_crispy_field }}
+      </div>
+      <div class="col-md-6">
+        <div class="form-check">
+          {{ form.assignees|as_crispy_field }}
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}
