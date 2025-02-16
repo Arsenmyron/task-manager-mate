@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's start!</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .index-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+        }
+        .index-card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .index-card {
+            width: 70%;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: background-color 0.5s ease, transform 0.9s ease;
+        }
+        .index-card.active {
+            transform: scale(1.05);
+            border-radius: 25px;
+        }
+        .index-card-body {
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 20px;
+        }
+        .index-card-body.active {
+            font-size: 28px;
+        }
+
+        .index-arrow {
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #333;
+            display: none;
+        }
+
+        .index-custom-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            align-items: center;
+        }
+        .index-start-button {
+            display: flex;
+            align-items: center;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 22px;
+            width: 160px;
+            padding: 10px 10px;
+            background-color: beige;
+            color: black;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 1px solid;
+            text-decoration: none;
+        }
+        .index-start-button:hover {
+            color: white;
+            background-color: #333;
+            border-color: white;
+            font-weight: bold;
+
+        }
+        .index-start-button img {
+            margin-left: 20px;
+            transition: filter 0.1s ease;
+        }
+        .index-start-button:hover img {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body class="background-color">
+    <h1 class="form-title">
+      <img src="{% static 'images/favicon.png' %}" alt="TaskManager" width="20">
+      Task Manager
+      <img src="{% static 'images/favicon.png' %}" alt="TaskManager" width="20">
+    </h1>
+    <div class="index-container">
+        <h1 class="form-title">Quick guide:</h1>
+        <div class="index-card-container">
+            <div class="index-card" id="task1">
+                <div class="index-card-body">Create tasks</div>
+                <div class="index-arrow">↓</div>
+            </div>
+            <div class="index-card" id="task2">
+                <div class="index-card-body">Assign them to other team members</div>
+                <div class="index-arrow">↓</div>
+            </div>
+            <div class="index-card" id="task3">
+                <div class="index-card-body">Work on solving problems</div>
+                <div class="index-arrow">↓</div>
+            </div>
+            <div class="index-card" id="task4">
+                <div class="index-card-body">Mark them as completed!</div>
+            </div>
+        </div>
+        <div class="index-custom-btn-container">
+            <a class="index-start-button" href="{% url 'task-management-app:home' %}">
+              Let's get started!
+              <img src="{% static 'images/lets_go.png' %}" alt="Start" width="30">
+            </a>
+        </div>
+    </div>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
