@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
- <div class="container mt-4">
+ <div class="container mt-2">
     <h1>Team:</h1>
-    <div class="worker-container row g-2">
+    <div class="card-container">
       {% for worker in worker_list %}
-        <div class="col-md-4">
-          <div class="workers-container card">
+          <div class="card">
             <div class="card-body">
               <h5 class="card-title">
-                <a class="custom-link" href="{% url 'task-management:worker-detail' pk=worker.id %}">
+                <a class="custom-link" href="{% url 'task-management-app:worker-detail' pk=worker.id %}">
                   {{ worker.first_name }} {{ worker.last_name }}
                 </a>
               </h5>
@@ -17,7 +16,7 @@
                 <h6>Assigned tasks:</h6>
                 {% for task in worker.tasks.all %}
                   <li class="list-group-item">
-                    <a class="task-link" href="{% url 'task-management:task-detail' pk=task.id %}">{{ task.name }}</a>
+                    <a class="task-link" href="{% url 'task-management-app:task-detail' pk=task.id %}">{{ task.name }}</a>
                   </li>
                 {% empty %}
                   <li class="list-group-item">No tasks assigned</li>
@@ -25,7 +24,6 @@
               </ul>
             </div>
           </div>
-        </div>
       {% endfor %}
     </div>
   </div>

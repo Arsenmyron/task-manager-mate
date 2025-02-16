@@ -39,12 +39,12 @@
             <span>No tags</span>
           {% endfor %}
         </div>
-        <form method="post" action="{% url 'task-management:task-delete' pk=task.id %}" style="display:inline;">
+        <form method="post" action="{% url 'task-management-app:task-delete' pk=task.id %}" style="display:inline;">
           {% csrf_token %}
           <button type="submit" class="delete-btn btn btn-dark">Delete</button>
         </form>
-        <a class="btn btn-dark" href="{% url 'task-management:task-update' pk=task.id %}">Update</a>
-        <a href="{% url 'task-management:home' %}" class="btn-close position-absolute top-0 end-0" aria-label="Close"></a>
+        <a class="btn btn-dark" href="{% url 'task-management-app:task-update' pk=task.id %}">Update</a>
+        <a href="{% url 'task-management-app:home' %}" class="btn-close position-absolute top-0 end-0" aria-label="Close"></a>
       </div>
     </div>
   </div>

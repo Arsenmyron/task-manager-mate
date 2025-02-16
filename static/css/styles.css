@@ -86,6 +86,7 @@ label {
     height: auto;
     flex-direction: column;
     justify-content: space-between;
+    font-family: "Trebuchet MS";
 }
 
 .custom-link {
@@ -115,31 +116,19 @@ h1 {
 
 body {
     background-color: #F5F5DC;
-}
-
-.btn-complete:hover {
-    border-width: 2px;
+    font-family: "Trebuchet MS";
 }
 
 .navigation-bgc {
     background-color: #F5F5DC;
 }
 
-.lg-hover:hover {
-    border-width: 2px;
-}
 
 .logout-container {
     display: flex;
     justify-content: flex-end;
 }
 
-.worker-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-}
 
 .card {
     flex: 1 1 calc(50% - 30px);
@@ -156,6 +145,7 @@ body {
 
 .nav-link:hover {
     color: #e0e0e0;
+    background-color: #333;
 }
 
 .task-link {
@@ -167,9 +157,7 @@ body {
     text-decoration: underline;
 }
 
-.delete-btn:hover {
-    color: red;
-}
+
 
 .undo-btn:hover {
     color: yellow;
@@ -188,4 +176,110 @@ body {
 
 .tag-table th {
     background-color: #f2f2f2;
+}
+.card-body .btn img {
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.1s ease;
+}
+.custom-btn-dark img {
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+.strong-h {
+    font-size: 20px;
+}
+.sidebar-btn:hover img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.5ms ease;
+}
+.task-types-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.task-types-table th, .task-types-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-types-table th {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.task-types-table td {
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+.tag-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tag-table th, .tag-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tag-table th {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.tag-table td {
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+.positions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.positions-table th, .positions-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.positions-table th {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.positions-table td {
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+.complete-btn img {
+    filter: none !important;
+    transition: filter 0.5ms ease;
+    vertical-align: middle;
+}
+.complete-btn:hover img {
+    filter: invert(1) brightness(4) !important;
+    transition: filter 0.5ms ease;
+}
+.centered-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    text-align: center;
 }

@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class=" navigation-bgc container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,28 +7,49 @@
     <div class="logout-buttons collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class=" lg-hover logout-button btn btn-dark nav-link" aria-current="page" href="{% url 'task-management:home' %}">Taskboard</a>
+          <a class="sidebar-btn logout-button btn btn-dark nav-link" aria-current="page" href="{% url 'task-management-app:home' %}">
+            <img src="{% static 'images/taskboard.png' %}" alt="Taskboard" width="20">
+            Taskboard
+          </a>
         </li>
         <li class="nav-item">
-          <a class=" lg-hover logout-button btn btn-dark nav-link" href="{% url 'task-management:worker-list' %}">Workers</a>
+          <a class="sidebar-btn logout-button btn btn-dark nav-link" href="{% url 'task-management-app:completed-task-list' %}">
+            <img src="{% static 'images/completed_tasks.png' %}" alt="Completed" width="20">
+            Completed
+          </a>
         </li>
         <li class="nav-item">
-          <a class=" lg-hover logout-button btn btn-dark nav-link" href="{% url 'task-management:completed-task-list' %}">Completed</a>
+          <a class="sidebar-btn logout-button btn btn-dark nav-link" href="{% url 'task-management-app:worker-list' %}">
+            <img src="{% static 'images/team.png' %}" alt="Workers" width="20">
+            Workers
+          </a>
         </li>
         <li class="nav-item">
-          <a class=" lg-hover logout-button btn btn-dark nav-link" href="{% url 'task-management:task-type-list' %}">Task Types</a>
+          <a class="sidebar-btn logout-button btn btn-dark nav-link" href="{% url 'task-management-app:task-type-list' %}">
+            <img src="{% static 'images/types.png' %}" alt="Types" width="20">
+            Task Types
+          </a>
         </li>
         <li class="nav-item">
-          <a class=" lg-hover logout-button btn btn-dark nav-link" href="{% url 'task-management:tag-list' %}">Tags</a>
+          <a class="sidebar-btn logout-button btn btn-dark nav-link" href="{% url 'task-management-app:tag-list' %}">
+            <img src="{% static 'images/tags.png' %}" alt="Tags" width="20">
+            Tags
+          </a>
         </li>
         <li class="nav-item">
-          <a class=" lg-hover logout-button btn btn-dark nav-link" href="{% url 'task-management:position-list' %}">Positions</a>
+          <a class="sidebar-btn logout-button btn btn-dark nav-link" href="{% url 'task-management-app:position-list' %}">
+            <img src="{% static 'images/positions.png' %}" alt="Positions" width="20">
+            Positions
+          </a>
         </li>
       </ul>
           <div class="logout-container">
             <form action="{% url 'logout' %}" method="post">
               {% csrf_token %}
-              <button class="lg-hover logout-button btn btn-dark" type="submit">Logout</button>
+              <button class="lg-hover logout-button btn btn-dark" type="submit">
+                <img src="{% static 'images/white_logout.png' %}" alt="Logout" width="20">
+                Logout
+              </button>
             </form>
           </div>
     </div>

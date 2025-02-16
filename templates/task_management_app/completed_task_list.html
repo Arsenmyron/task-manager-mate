@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% load static %}
   <h1>Completed tasks:</h1>
     {% if completed_task_list %}
       <div class="card-container">
@@ -8,7 +9,7 @@
         <div class="card">
     <div class="card-body">
         <h5 class="card-title">
-            <a class="custom-link" href="{% url 'task-management:task-detail' pk=task.id %}">{{ task.name }}</a>
+            <a class="custom-link" href="{% url 'task-management-app:task-detail' pk=task.id %}">{{ task.name }}</a>
         </h5>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -22,19 +23,35 @@
             </li>
         </ul>
         <div class="card-body">
-            <form action="{% url 'task-management:task-toggle-status' pk=task.id %}" method="post" style="display:inline;">
+            <form action="{% url 'task-management-app:task-toggle-status' pk=task.id %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                  <button type="submit" class="undo-btn btn btn-outline-dark">Undo</button>
+                  <button type="submit" class="btn btn-dark">
+                    <img src="{% static 'images/undo.png' %}" alt="Undo" width="20">
+                    Undo
+                  </button>
                   </form>
-                  <form action="{% url 'task-management:task-delete' pk=task.id %}" method="post" style="display:inline;">
+                  <form action="{% url 'task-management-app:task-delete' pk=task.id %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                  <button type="submit" class="delete-btn btn btn-outline-dark">Delete</button>
+                  <button type="submit" class="btn btn-dark">
+                    <img src="{% static 'images/delete.png' %}" alt="Delete" width="20">
+                    Delete
+                  </button>
                   </form>
               </div>
             </div>
           </div>
         {% endfor %}
       {% else %}
-      <p>No completed tasks!</p>
+      <div class="centered-message">
+        <h2>
+          Nothing has been done yet
+        </h2>
+        <h5>
+          <a class="btn btn-outline-dark" href="{% url 'task-management-app:home' %}">
+            Try to fix it!
+          </a>
+        </h5>
+      </div>
     {% endif %}
-{% endblock %}
+    {% endblock %}
+</div>

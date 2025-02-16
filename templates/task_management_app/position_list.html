@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+  {% load static %}
   <div class="custom-btn-container">
-    <a class="lg-hover btn btn-dark" href="{% url 'task-management:position-create' %}">Create new position</a>
+    <a class="custom-btn-dark btn btn-dark" href="{% url 'task-management-app:position-create' %}">
+      <img src="{% static 'images/briefcase.png' %}" alt="Add Position" width="20">
+      Create new position
+    </a>
   </div>
   <div class="container">
         <h1>Positions</h1>
@@ -11,16 +15,24 @@
                     <tr>
                         <td>{{ position.name }}</td>
                         <td>
-                            <form method="post" action="{% url 'task-management:position-delete' position.id %}">
+                            <form method="post" action="{% url 'task-management-app:position-delete' position.id %}">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-dark">Delete</button>
+                                <button type="submit" class="custom-btn-dark btn btn-dark">
+                                  <img src="{% static 'images/delete.png' %}" alt="Delete" width="20">
+                                  Delete
+                                </button>
                             </form>
                         </td>
                     </tr>
                 {% empty %}
-                    <tr>
-                        <td colspan="2">No positions available</td>
-                    </tr>
+                    <div class="centered-message">
+                    <h3>No positions</h3>
+                    <h5>
+                      <a class="btn btn-outline-dark" href="{% url 'task-management-app:position-create' %}">
+                        It`s better to create some!
+                      </a>
+                    </h5>
+                  </div>
                 {% endfor %}
             </tbody>
         </table>

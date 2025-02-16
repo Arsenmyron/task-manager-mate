@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+  {% load static %}
   <div class="custom-btn-container">
-    <a class="lg-hover btn btn-dark" href="{% url 'task-management:task-type-create' %}">Add task type</a>
+    <a class="lg-hover btn btn-dark" href="{% url 'task-management-app:task-type-create' %}">
+      <img src="{% static 'images/plus.png' %}" alt="Add" width="20">
+      Add task type
+    </a>
   </div>
   <div class="container">
         <h1>Task Types:</h1>
@@ -11,16 +15,24 @@
                     <tr>
                         <td>{{ task_type.name }}</td>
                         <td>
-                            <form method="post" action="{% url 'task-management:task-type-delete' task_type.id %}">
+                            <form method="post" action="{% url 'task-management-app:task-type-delete' task_type.id %}">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-dark">Delete</button>
+                                <button type="submit" class="custom-btn-dark btn btn-dark">
+                                  <img src="{% static 'images/delete.png' %}" alt="Delete" width="20">
+                                  Delete
+                                </button>
                             </form>
                         </td>
                     </tr>
                 {% empty %}
-                    <tr>
-                        <td colspan="2">No task types available</td>
-                    </tr>
+                    <div class="centered-message">
+                    <h3>No task types provided!</h3>
+                    <h5>
+                      <a class="btn btn-outline-dark" href="{% url 'task-management-app:task-type-create' %}">
+                        Create a new one!
+                      </a>
+                    </h5>
+                  </div>
                 {% endfor %}
             </tbody>
         </table>
