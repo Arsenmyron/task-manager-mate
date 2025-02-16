@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -94,6 +95,11 @@ class WorkerSignUpView(generic.CreateView):
     form_class = WorkerForm
     success_url = reverse_lazy("task_management_app:home")
     template_name = "registration/signup.html"
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        login(self.request, self.object)
+        return response
 
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
